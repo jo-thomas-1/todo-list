@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ToDo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/login.css">
+
+        <!-- Bootstrap 4 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- JavaScript -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/login.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="container">
+                <div class="card text-center mx-auto" id="login_card">
+                    <div class="card-body">
+                        <img src="image/icon.png" class="d-inline" id="icon" style="margin-right: 0.3rem;">
+                        <h5 class="card-title d-inline">ToDo</h5>
+                        <p>Login to your ToDo account</p>
+                        <div class="alert" id="login_message_box" role="alert">
+                            <span id="login_message"></span>
+                            <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close" onclick="close_alert('#login_message_box');">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="main.html" method="POST" onsubmit="return login_validate()" id="login_form">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="password" class="form-control mb-2" name="password" id="password" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
