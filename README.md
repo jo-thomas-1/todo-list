@@ -26,6 +26,7 @@ Requirements
 
 - must use Bootstrap
 - login page - username "admin" and password "12345"
+- redirect to the main page using callback function
 - navigation bar - Todo List, LogOut
 - retrieve daily tasks from API - https://jsonplaceholder.typicode.com/todos
 - option to mark todo's already completed
@@ -34,5 +35,7 @@ Requirements
 
 [Version] : [major].[minor].[patch]
 Version: 0.0.0-beta
+
+Github page: https://jothomas1996.github.io/ict_fsd_cs1/
 
 -----------------------------------------------------------------------------------------------------------
