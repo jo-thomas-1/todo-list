@@ -85,3 +85,11 @@ body {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
+
+.not_completed_task_checkbox > .fa-square {
+    cursor: pointer;
+}
+
+.completed_task_checkbox {
+    color: rgba(143, 143, 143, 0.822);
+}

@@ -20,7 +20,6 @@
         <!-- JavaScript -->
         <script>
             var todo_object = "";
-            var number_of_tasks_completed = 0;
         </script>
         <script src="js/navbar.js"></script>
         <script src="js/jquery-3.5.1.min.js"></script>
@@ -66,7 +65,7 @@
 
         <div class="row">
             <div class="container">
-                <!-- Main -->
+                <!-- Main card -->
                 <div class="card todo_container mb-3" id="todo_container_main">
                     <div class="card-body">
                         <div class="row">
@@ -76,11 +75,23 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Todo List Start -->
                 <div id="todo_list_container">
                     <!-- /////////////////////// New Todo Cards /////////////////////// -->
                 </div>
                 <!-- END Todo List -->
+                
+                <!-- Main card -->
+                <div class="card todo_container mb-3" id="todo_container_main">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="card-text col">Tasks: <span id="total_task_number"></span></div>
+                            <div class="card-text col">Completed: <span id="total_completed_task_number"></span></div>
+                            <div class="card-text col">Pending: <span id="total_pending_task_number"></span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

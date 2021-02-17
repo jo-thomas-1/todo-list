@@ -18,19 +18,33 @@ function generate_task_card(task, index)
 
     if(task["completed"])
     {
-        number_of_tasks_completed += 1;
-        card += `<div class="card-text col-1"><i class="far fa-check-square"></i></div>
+        // <i class="far fa-check-square"></i>
+        card += `<div class="card-text col-1 completed_task_checkbox" id="todo_card_` + task["id"] + `_checkbox">
+                <i class="far fa-check-square"></i>
+            </div>
             <div class="card-text col">` + task["title"] + `</div>
-            <div class="card-text col"><span class="badge badge-success">Completed</span></div>`;
+            <div class="card-text col" id="todo_card_` + task["id"] + `_status">
+                <span class="badge badge-success">Completed</span>
+            </div>`;
     }
     else
     {
-        card += `<div class="card-text col-1"><i class="far fa-square"></i></div>
+        // <i class="far fa-square"></i>
+        card += `<div class="card-text col-1 not_completed_task_checkbox" id="todo_card_` + task["id"] + `_checkbox">
+                <i class="far fa-square"></i>
+            </div>
             <div class="card-text col">` + task["title"] + `</div>
-            <div class="card-text col"><span class="badge badge-warning">Pending</span></div>`;
+            <div class="card-text col" id="todo_card_` + task["id"] + `_status">
+                <span class="badge badge-warning">Pending</span>
+            </div>`;
     }
 
-    card += `</div>
+    card += `<script>
+                        $('#todo_card_` + task["id"] + `_checkbox > .fa-square').click(function() {
+                            task_completed(` + task["id"] + `);
+                        });
+                    </script>
+                </div>
             </div>
         </div>
     `;
@@ -101,11 +115,6 @@ $(window).on("load",function() {
                                                                 // 4 - Update list to application
                                                                 $("#loading_todo_container_4").delay(1000).animate(grow, 600, function() {
                                                                     // for loop creating cards in the application
-                                                                    /*todo_object.forEach(element => {
-                                                                        debugger;
-                                                                        $(".todo_container").append(generate_task_card(element));
-                                                                    });*/
-
                                                                     todo_object.forEach(generate_task_card);
 
                                                                     $("#loading_checkbox_4").delay(1000).html('<i class="far fa-check-square"></i>');
@@ -117,8 +126,8 @@ $(window).on("load",function() {
                                                                         $("#loading_todo_container_5").delay(1000).animate(grow, 600, function() {
                                                                             // populate variables in application
                                                                             $("#total_task_number").html(todo_object.length);
-                                                                            $("#total_completed_task_number").html(number_of_tasks_completed + ' (' + Math.floor((number_of_tasks_completed/todo_object.length) * 100) + '%)');
-                                                                            $("#total_pending_task_number").html($("#todo_list_container > .todo_container").length - number_of_tasks_completed);
+                                                                            $("#total_completed_task_number").html($(".completed_task_checkbox").length + ' (' + Math.floor(($(".completed_task_checkbox").length/todo_object.length) * 100) + '%)');
+                                                                            $("#total_pending_task_number").html($("#todo_list_container > .todo_container").length - $(".completed_task_checkbox").length);
                                                                             
                                                                             $("#loading_checkbox_5").delay(1000).html('<i class="far fa-check-square"></i>');
                                                                             $("#loading_todo_container_5 .task").css('text-decoration', 'line-through');
