@@ -34,7 +34,7 @@ Requirements
 - logout option in menu redirects to login page
 
 [Version] : [major].[minor].[patch]
-Version: 0.0.0-beta
+Version: 0.0.0
 
 Github page: https://jothomas1996.github.io/ict_fsd_cs1/
 

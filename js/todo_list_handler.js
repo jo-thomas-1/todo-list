@@ -23,12 +23,14 @@ function task_completed(task_id)
         }
     });
 
-
-    promise.then(
-        function() {
-            alert('Congradulations - you have completed 5 new tasks');
-            console.log('5 new tasks completion has been updated');
-        },
-        function() {console.log('task completion has been updated - 5 new tasks not yet covered');}
-    );
+    // delay set to make sure that congradulations alert message is shown only after 5th task also is updated as completed
+    setTimeout(() => {
+        promise.then(
+            function() {
+                alert('Congradulations - you have completed 5 new tasks');
+                console.log('5 new tasks completion has been updated');
+            },
+            function() {console.log('task completion has been updated - 5 new tasks not yet covered');}
+        );
+    }, 500);
 }
